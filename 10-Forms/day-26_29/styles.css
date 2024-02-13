@@ -3,6 +3,17 @@ body {
   background-color: rgb(30, 30, 30);
 }
 
+h1 {
+  text-align: center;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 form {
   width: 30rem;
   padding: 1rem;
@@ -16,7 +27,9 @@ label {
   margin-bottom: 0.5rem;
 }
 
-input {
+input,
+textarea,
+select {
   box-sizing: border-box;
   font: inherit;
   width: 100%;
@@ -28,10 +41,15 @@ input {
   color: rgb(61, 58, 58);
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   background-color: rgb(219, 190, 253);
   column-rule: rgb(32, 5, 63);
   border-color: rgb(32, 5, 63);
+}
+
+textarea {
+  resize: vertical;
 }
 
 button {
