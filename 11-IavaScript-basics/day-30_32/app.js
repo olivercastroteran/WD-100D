@@ -4,8 +4,8 @@ let hobbies = ['Sports', 'Reading', 'Coding'];
 
 let job = {
   title: 'Fullstack Developer',
-  salary: 50000,
   place: 'New York',
+  salary: 50000,
 };
 
 let adultYears;
@@ -18,3 +18,15 @@ adultYears = calcAdultYear(42);
 
 console.log(hobbies[1]);
 console.log(job.salary);
+
+let person = {
+  // Property
+  name: 'Oli',
+  // Method
+  greet() {
+    // alert('Hello!');
+    console.log('Hello!');
+  },
+};
+
+person.greet();
