@@ -22,5 +22,13 @@
     "website": "https://donjulio.com",
     "description": "ba al al alb lab lab lab alb la bl bl al bla bla",
     "id": "5487c809-114e-49cd-820f-4d2c636152a6"
+  },
+  {
+    "name": "Test Rest",
+    "address": "test st",
+    "cuisine": "testirian",
+    "website": "https://test.com",
+    "description": "tstststs ts et st st s te st es t st tsettsets",
+    "id": "0e8fa704-a332-4c91-95bb-4d5681feb5e7"
   }
 ]
