@@ -1,6 +1,11 @@
+header {
+  margin-bottom: 61px;
+}
+
 h1 {
   font-size: 48px;
   color: rgb(71, 62, 62);
+  margin: 12px 0;
 }
 
 a {
@@ -8,6 +13,7 @@ a {
   color: #fff;
   border-radius: 4px;
   font-size: 24px;
+  padding: 12px 48px;
 }
 
 a:hover {
@@ -18,16 +24,40 @@ a:hover {
 a {
   background-color: rgb(167, 1, 78);
   color: #fff;
+  border: 1px solid rgb(167, 1, 78);
   border-radius: 4px;
   font-size: 24px;
 }
 
 ol {
   list-style: none;
+  width: 500px;
+  margin: 36px auto 0 auto;
+  padding: 0;
 }
 
 li {
   margin: 32px;
   background-color: rgb(223, 136, 124);
   border-radius: 6px;
+  padding: 16px;
+}
+
+h2 {
+  color: rgb(78, 13, 5);
+  font-family: 'Oswald', sans-serif;
+}
+
+main p {
+  margin: 12px;
+  color: rgb(71, 29, 22);
+}
+
+.daily-goals {
+  margin: 12px;
+  color: rgb(71, 29, 22);
+}
+
+.highlight {
+  background-color: rgb(226, 115, 101);
 }

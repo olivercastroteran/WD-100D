@@ -12,6 +12,10 @@ p {
   font-family: 'Fira Sans', sans-serif;
 }
 
+header p {
+  margin-bottom: 36px;
+}
+
 a {
   font-family: 'Fira Sans', sans-serif;
   color: rgb(167, 1, 78);
