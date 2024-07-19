@@ -14,6 +14,8 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 15px 60px;
+  position: absolute;
+  width: 100%;
 }
 
 #page-logo a:link {
@@ -32,4 +34,18 @@ header ul {
 
 header li {
   margin-left: 20px;
+}
+
+header a:link {
+  text-decoration: none;
+  color: rgb(255, 251, 0);
+  font-size: 20px;
+  padding: 12px;
+  border-radius: 6px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+header a:hover {
+  color: rgb(77, 77, 77);
+  background-color: rgb(255, 251, 0);
 }

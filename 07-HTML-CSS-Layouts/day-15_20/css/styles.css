@@ -1,10 +1,10 @@
-/* *,
+*,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} */
+}
 
 #hero {
   height: 800px;
@@ -26,11 +26,12 @@
 }
 
 #hero-content h1 {
+  font-family: 'Raleway', sans-serif;
   color: white;
   text-transform: uppercase;
   font-size: 50px;
-  font-family: 'Raleway', sans-serif;
   margin: 0;
+  margin-bottom: 24px;
 }
 
 #hero-content p {
@@ -47,7 +48,7 @@
   padding: 12px 24px;
   color: black;
   font-size: 24px;
-  font-weight: 700;
+  /* font-weight: 700; */
   display: inline-block;
   border-radius: 8px;
   box-shadow: 2px 4px 8px rgb(68, 67, 67);
@@ -55,4 +56,44 @@
 
 #hero-content a:hover {
   background-color: rgb(255, 238, 0);
+}
+
+#highlights h2 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 40px;
+  color: rgb(59, 65, 64);
+  margin: 24px 0;
+}
+
+.destinations {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.destination {
+  margin: 0 20px;
+  text-transform: uppercase;
+}
+
+.destination img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  box-shadow: 2px 4px 8px rgb(68, 67, 67);
+  border-radius: 10px;
+}
+
+.destination p {
+  text-align: center;
+  font-size: 24px;
+  color: rgb(124, 123, 123);
+  margin: 20px 0;
+}
+
+.destination strong {
+  color: rgb(0, 160, 117);
 }
