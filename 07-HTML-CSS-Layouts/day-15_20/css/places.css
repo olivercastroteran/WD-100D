@@ -22,7 +22,7 @@ header nav a:hover {
 
 main ul {
   width: 1200px;
-  margin: 0 auto 40px auto;
+  margin: 40px auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
@@ -31,7 +31,7 @@ main ul {
 main li {
   display: flex;
   background-color: white;
-  box-shadow: 1pa 1pa 4pa rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   overflow: hidden;
 }
