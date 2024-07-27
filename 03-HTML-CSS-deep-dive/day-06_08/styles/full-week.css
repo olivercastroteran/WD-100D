@@ -5,15 +5,22 @@ header {
 h1 {
   font-size: 48px;
   color: rgb(71, 62, 62);
+  margin: 0;
+}
+
+#description {
   margin: 12px 0;
 }
 
 a {
+  cursor: pointer;
+  display: inline-block;
   background-color: rgb(167, 1, 78);
   color: #fff;
   border-radius: 4px;
   font-size: 24px;
   padding: 12px 48px;
+  margin: 0;
 }
 
 a:hover {
@@ -41,6 +48,7 @@ li {
   background-color: rgb(223, 136, 124);
   border-radius: 6px;
   padding: 16px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
