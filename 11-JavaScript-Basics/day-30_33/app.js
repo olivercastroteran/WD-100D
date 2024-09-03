@@ -20,3 +20,13 @@ function calcAdultYears(userAge) {
 
 // argument
 console.log(calcAdultYears(age));
+
+const person = {
+  name: 'Oli', // property
+  greet() {
+    // method
+    console.log('Hello!');
+  },
+};
+
+person.greet();
