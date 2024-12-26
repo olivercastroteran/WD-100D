@@ -55,7 +55,7 @@ button:hover {
   border-color: rgb(209, 197, 23);
 }
 
-.count-down {
+.count {
   color: rgb(105, 101, 75);
 }
 
@@ -63,6 +63,6 @@ input.warning {
   background-color: rgb(248, 191, 145);
 }
 
-.count-down.warning {
+.count.warning {
   color: rgb(211, 109, 26);
 }
