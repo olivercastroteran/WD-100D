@@ -1,5 +1,5 @@
-function openPlayerConfig(event) {
-  editedPlayer = +event.target.dataset.playerid; // + converts string to number
+function openPlayerConfig(e) {
+  editedPlayer = +e.target.dataset.playerid;
   playerConfigModal.style.display = 'block';
   backdrop.style.display = 'block';
 }
@@ -7,6 +7,10 @@ function openPlayerConfig(event) {
 function closePlayerConfig() {
   playerConfigModal.style.display = 'none';
   backdrop.style.display = 'none';
+  form.firstElementChild.classList.remove('error');
+  configErrorMsg.textContent = '';
+  form.firstElementChild.lastElementChild.value = '';
+  // form.reset();
 }
 
 function savePlayerConfig(e) {
@@ -15,14 +19,15 @@ function savePlayerConfig(e) {
   const enteredPlayerName = formData.get('playername').trim();
 
   if (!enteredPlayerName) {
-    alert('Please enter a valid name!');
+    document.querySelector('.form-control').classList.add('error');
+    configErrorMsg.textContent = 'Please enter a valid name!';
     return;
   }
 
-  const updatedPlayerDataElement = document.getElementById(
+  const updatedPlayerData = document.getElementById(
     `player-${editedPlayer}-data`,
   );
-  updatedPlayerDataElement.children[1].textContent = enteredPlayerName;
+  updatedPlayerData.children[1].textContent = enteredPlayerName;
 
   players[editedPlayer - 1].name = enteredPlayerName;
 
