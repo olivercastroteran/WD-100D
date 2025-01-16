@@ -12,9 +12,10 @@ const cancelBtn = document.getElementById('cancel-btn');
 const startGameBtn = document.getElementById('start-game-btn');
 const gameArea = document.getElementById('active-game');
 const cells = document.querySelectorAll('#game-board li');
+const gameOver = document.getElementById('game-over');
 
 // Variables
-const board = [
+let board = [
   [0, 0, 0],
   [0, 0, 0],
   [0, 0, 0],
@@ -22,6 +23,8 @@ const board = [
 
 let editedPlayer = 0;
 let activePlayer = 0;
+let currentRound = 1;
+let isGameOver = false;
 
 const players = [
   {
