@@ -1,14 +1,14 @@
 {
-  "name": "day-48_49",
+  "name": "web-development-complete-guide",
   "version": "1.0.0",
-  "description": "Getting started with Node JS & ExpressJS",
-  "license": "MIT",
-  "author": "Oliver Castro Teran",
-  "type": "commonjs",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
   },
+  "keywords": [],
+  "author": "Maximilian Schwarzmüller (Academind GmbH)",
+  "license": "MIT",
   "dependencies": {
     "express": "^5.2.1"
   },
