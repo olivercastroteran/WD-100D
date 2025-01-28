@@ -1,0 +1,26 @@
+[
+  {
+    "id": "r1",
+    "name": "Cantonata",
+    "address": "Test St.",
+    "cuisine": "Italian",
+    "website": "https://cantonata.com",
+    "description": "bla balb alb alb al bla blfa lb fafdlb alfd baldfb lad blb da"
+  },
+  {
+    "id": "r2",
+    "name": "Don Julio",
+    "address": "Baires St.",
+    "cuisine": "Argentinian",
+    "website": "https://donjulio.com",
+    "description": "badfl bladf bakd fblaf dba dfbjk adbdf"
+  },
+  {
+    "name": "La Doce",
+    "address": "Palermo St.",
+    "cuisine": "Argentinian",
+    "website": "https://test.com",
+    "description": "bafd blaf. adlb faldfb ladb aldb ss",
+    "id": "15b6051d-a608-4a57-aab8-8cd58247a144"
+  }
+]
