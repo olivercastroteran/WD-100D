@@ -1,6 +1,8 @@
 const express = require('express');
 const multer = require('multer');
 
+const db = require('../data/database');
+
 const storageConfig = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'images');
@@ -13,20 +15,25 @@ const storageConfig = multer.diskStorage({
 const router = express.Router();
 const upload = multer({ storage: storageConfig });
 
-router.get('/', function (req, res) {
-  res.render('profiles');
+router.get('/', async function (req, res) {
+  const users = await db.getDb().collection('users').find().toArray();
+  res.render('profiles', { users });
 });
 
 router.get('/new-user', function (req, res) {
   res.render('new-user');
 });
 
-router.post('/profiles', upload.single('image'), (req, res) => {
+router.post('/profiles', upload.single('image'), async (req, res) => {
   const uploadedFile = req.file;
   const userData = req.body;
 
-  console.log(uploadedFile);
-  console.log(userData);
+  // console.log(uploadedFile);
+  // console.log(userData);
+  await db.getDb().collection('users').insertOne({
+    name: userData.username,
+    imagePath: uploadedFile.path,
+  });
 
   res.redirect('/');
 });
