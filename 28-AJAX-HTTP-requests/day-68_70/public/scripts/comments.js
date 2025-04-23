@@ -27,12 +27,23 @@ async function fetchComments(e) {
   const response = await fetch(
     `/posts/${loadCommentsBtn.dataset.postid}/comments`,
   );
+
+  if (!response.ok) {
+    alert('Fetching comments failed!');
+    return;
+  }
+
   const data = await response.json();
   // console.log(data);
 
-  const commentsList = createCommentsList(data);
-  commentsSection.innerHTML = '';
-  commentsSection.appendChild(commentsList);
+  if (data && data.length > 0) {
+    const commentsList = createCommentsList(data);
+    commentsSection.innerHTML = '';
+    commentsSection.appendChild(commentsList);
+  } else {
+    commentsSection.firstElementChild.textContent =
+      'We could not find any comments!';
+  }
 }
 
 async function saveComment(e) {
@@ -43,13 +54,26 @@ async function saveComment(e) {
 
   const comment = { title, text };
 
-  await fetch(`/posts/${loadCommentsBtn.dataset.postid}/comments`, {
-    method: 'POST',
-    body: JSON.stringify(comment),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+  try {
+    const response = await fetch(
+      `/posts/${loadCommentsBtn.dataset.postid}/comments`,
+      {
+        method: 'POST',
+        body: JSON.stringify(comment),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+
+    if (response.ok) {
+      fetchComments();
+    } else {
+      alert('Could not send comment!');
+    }
+  } catch (error) {
+    alert('Could not send request');
+  }
 }
 
 loadCommentsBtn.addEventListener('click', fetchComments);
