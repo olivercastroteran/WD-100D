@@ -12,21 +12,22 @@ router.get('/discussion', async function (req, res) {
   let filter = '';
 
   if (req.query.author) {
-    filter = `WHERE author = "${req.query.author}"`; 
+    filter = `WHERE author = ?`;
   }
 
   const query = `SELECT * FROM comments ${filter}`;
 
   console.log(query);
 
-  const [comments] = await db.query(query);
+  const [comments] = await db.query(query, [req.query.author]);
 
   res.render('discussion', { comments: comments });
 });
 
 router.post('/discussion/comment', async function (req, res) {
-
-  await db.query('INSERT INTO comments (author, text) VALUES (?)', [[req.body.name, req.body.comment]])
+  await db.query('INSERT INTO comments (author, text) VALUES (?)', [
+    [req.body.name, req.body.comment],
+  ]);
 
   res.redirect('/discussion');
 });
