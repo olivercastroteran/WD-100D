@@ -7,8 +7,8 @@ async function addToCart(e) {
     response = await fetch('/cart/items', {
       method: 'POST',
       body: JSON.stringify({
-        productId: e.target.dataset.productid,
-        _csrf: e.target.dataset.csrf,
+        productId: addToCartBtn.dataset.productid,
+        _csrf: addToCartBtn.dataset.csrf,
       }),
       headers: {
         'Content-Type': 'application/json',
