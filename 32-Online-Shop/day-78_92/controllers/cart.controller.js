@@ -1,6 +1,6 @@
 const Product = require('../models/product.model');
 
-function getCart(req, res) {
+async function getCart(req, res) {
   res.render('customer/cart/cart');
 }
 
@@ -10,6 +10,7 @@ async function addCartItem(req, res, next) {
     product = await Product.findById(req.body.productId);
   } catch (error) {
     next(error);
+    return;
   }
 
   const cart = res.locals.cart;
@@ -28,8 +29,9 @@ function updateCartItem(req, res) {
 
   const updatedItemData = cart.updateItem(
     req.body.productId,
-    req.body.quantity,
+    +req.body.quantity,
   );
+
   req.session.cart = cart;
 
   res.json({
@@ -43,7 +45,7 @@ function updateCartItem(req, res) {
 }
 
 module.exports = {
-  addCartItem,
-  getCart,
-  updateCartItem,
+  addCartItem: addCartItem,
+  getCart: getCart,
+  updateCartItem: updateCartItem,
 };

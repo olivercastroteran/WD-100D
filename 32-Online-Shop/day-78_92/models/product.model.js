@@ -1,4 +1,5 @@
 const mongodb = require('mongodb');
+
 const db = require('../data/database');
 
 class Product {
@@ -28,7 +29,7 @@ class Product {
       .findOne({ _id: prodId });
 
     if (!product) {
-      const error = new Error('Could not find product');
+      const error = new Error('Could not find product with provided id.');
       error.code = 404;
       throw error;
     }
@@ -38,8 +39,25 @@ class Product {
 
   static async findAll() {
     const products = await db.getDb().collection('products').find().toArray();
-    return products.map((product) => {
-      return new Product(product);
+
+    return products.map(function (productDocument) {
+      return new Product(productDocument);
+    });
+  }
+
+  static async findMultiple(ids) {
+    const productIds = ids.map(function (id) {
+      return new mongodb.ObjectId(id);
+    });
+
+    const products = await db
+      .getDb()
+      .collection('products')
+      .find({ _id: { $in: productIds } })
+      .toArray();
+
+    return products.map(function (productDocument) {
+      return new Product(productDocument);
     });
   }
 
@@ -58,29 +76,31 @@ class Product {
     };
 
     if (this.id) {
-      const prodId = new mongodb.ObjectId(this.id);
+      const productId = new mongodb.ObjectId(this.id);
 
       if (!this.image) {
         delete productData.image;
       }
 
-      await db
-        .getDb()
-        .collection('products')
-        .updateOne({ _id: prodId }, { $set: productData });
+      await db.getDb().collection('products').updateOne(
+        { _id: productId },
+        {
+          $set: productData,
+        },
+      );
     } else {
       await db.getDb().collection('products').insertOne(productData);
     }
   }
 
-  async replaceImage(newImage) {
+  replaceImage(newImage) {
     this.image = newImage;
     this.updateImageData();
   }
 
   remove() {
-    const prodId = new mongodb.ObjectId(this.id);
-    return db.getDb().collection('products').deleteOne({ _id: prodId });
+    const productId = new mongodb.ObjectId(this.id);
+    return db.getDb().collection('products').deleteOne({ _id: productId });
   }
 }
 
