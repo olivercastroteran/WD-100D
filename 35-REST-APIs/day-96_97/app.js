@@ -1,8 +1,15 @@
 const express = require('express');
 
 const db = require('./data/database');
+const todosRoutes = require('./routes/todos.routes');
+const enableCORS = require('./middlewares/cors');
 
 const app = express();
+
+app.use(enableCORS);
+app.use(express.json());
+
+app.use('/todos', todosRoutes);
 
 app.use(function (req, res, next) {
   res.status(500).json({
