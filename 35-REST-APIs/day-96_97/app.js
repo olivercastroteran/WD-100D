@@ -1,7 +1,6 @@
 const express = require('express');
 
 const db = require('./data/database');
-const quoteRoutes = require('./routes/quotes.routes');
 
 const app = express();
 
