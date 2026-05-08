@@ -17,5 +17,3 @@ db.initDb()
   .catch(function (error) {
     console.log('Connecting to the database failed!');
   });
-
-console.log('started');
